@@ -1,0 +1,24 @@
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.exe
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.pdb
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.exe
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.pdb
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\obj\x86\Debug\The_Echo_Environment.Command_Sounds.resources
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Dominick\documents\visual studio 2010\Projects\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.XML
+E:\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.XML
+E:\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.exe
+E:\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.pdb
+G:\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.XML
+G:\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.exe
+G:\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.pdb
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.XML
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.exe
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\obj\x86\Debug\The Echo Environment.pdb
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.exe
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\bin\Debug\The Echo Environment.pdb
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\obj\x86\Debug\The_Echo_Environment.Command_Sounds.resources
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Owner\Desktop\The Echo Environment\The Echo Environment\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>The Echo Environment</name>
+    </assembly>
+    <members>
+        <member name="F:The_Echo_Environment.Echo.Chain_Base">
+            <summary>
+            Holds a <c>List</c> of <c>Key_and_Command</c> structures to keep track of any ignition words or phrases that were
+            added to the <c>Echo</c> class.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Ignition_Phords">
+            <summary>
+            Holds a <c>List</c> of <c>GrammarBuilder</c> objects that holds the ignition words or pharses in the appropriate
+            format for the <c>SpeechRcognitionEngine</c>.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Choice_Dictionary">
+            <summary>
+            Holds a <c>List</c> of <c>Key_and_Choice</c> structures that keep track of any choice sets that have been created
+            and linked to a respective keyword or phrase.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Choice_Base">
+            <summary>
+            Holds a <c>List</c> of <c>Choices</c> objects that holds a given set of choices in a format that can be easily linked
+            to a keyword or phrase upon the developer's descretion.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Recognition_Table">
+            <summary>
+            Holds any data that is currently being recognized or will be recognized by the <c>SpeechRecognitionEngie</c> object.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Recogn_Engine">
+            <summary>
+            This object triggers events necessary to react to the user upon a given keyword or phrase that is either by itself
+            or link with a set of choices.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Confidence_Level">
+            <summary>
+            The confidence level in which the <c>SpeechRecognitionEngine</c>'s certainty of a recognized speech pattern must
+            either be equal to or greater than in order to initialize any sort of reaction.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Recognition_Type">
+            <summary>
+            The mode in which the <c>SpeechRecognitionEngine</c> object is currently operating at.
+            </summary>
+        </member>
+        <member name="M:The_Echo_Environment.Echo.#ctor(System.Single,System.Speech.Recognition.RecognizeMode)">
+            <summary>
+                 The <c>Echo</c> constructor is used to initialize the starting confidence level and the starting recognition type.
+            </summary>
+            <remarks>
+                 The <c>Echo</c> constructor will instantiate all of its private data members and assign the initial confidence level and recognition
+                 mode the recognition engine is in. You can the two following modes <c>RecognizeMode.Multiple</c> - where the speech recognition object
+                 listens until told to stop - or <c>RecognizeMode.Single</c> - where once a speech pattern is recognized, it stops running. <em>Needless to
+                 say, the <c>RecognizedMode.Multiple</c> is the preferred choice.</em>
+            </remarks>
+            <param name="Initial_Confidence">
+                 The initial confidence level that a given speech pattern must make before a reaction is made by the
+                 recognition engine.
+            </param>
+            <param name="Initial_Recognition">
+                 The initial recognition mode the recognition engine will start off with.
+            </param>
+            <example>
+                 <b>An example of initializing the constuctor is the following:</b>
+                 
+                     <code>
+                             Echo_Major = new Echo(.80f, RecognizeMode.Multiple);
+                     </code>
+                     
+                 This will set thw initial confidence level at eighty percent (80%) and sets the recognition engine to recognize multiple speech patterns.
+            </example>
+            
+        </member>
+        <member name="M:The_Echo_Environment.Echo.Add_Choices(System.String[])">
+             <summary>
+                  The <c>Add_Choices</c> method lets you add a set of choices to the <c>Echo</c> class' internal choice
+                  dictionary.
+             </summary>
+             <remarks>
+             
+             </remarks>
+             <param name="Set_Choices">
+                  Takes a string array of choices and places them within the Echo's <c>Choice_Dictionary</c>.
+             </param>
+             
+             <example>
+                      <para>
+                          <b>An example of creating a set of choices would be the following:</b>
+                          <para>
+                              <code>
+                                      Echo_Major.Add_Choices(new string[] {"foo", "bar"});
+                              </code>
+                          </para>
+                      </para>
+            </example>
+             
+        </member>
+        <member name="M:The_Echo_Environment.Echo.Add_Ignition_Word(System.String)">
+            <summary>
+                 The <c>Add_Ignition_Word</c> method allows the developer to add a new ignition word or phrase to the <c>Echo</c>
+                 class' internal data member <c>Ignition_Phords</c>.
+            </summary>
+            <remarks>
+                 The <c>Add_Ignition_Word</c> method lets the developer add a new ignition word or phrase (<em>think of a keyword
+                 </em>) to the <c>Echo</c> class' internal data member <c>Ignition_Phords</c>. Once this word or phrase is added,
+                 you can either:
+                 <ul>
+                         <li>
+                             Add the ignition word or phrase to the <c>Working_Set</c> via the <c>Add_Ignition_to_WS</c>
+                             method. This allows the word or pharse alone to initiate a select action once called
+                             (assuming the voice recognition engine in on).
+                         </li>
+                         <li>
+                             Link the ignition word or phrase to a set of choices via the <c>Combine_ItoC</c> method.
+                             This will bind the ignition word or phrase to each choice within the selected choice set.
+                         </li>
+                 </ul>
+            </remarks>
+            <param name="I_Word">
+                 The <c>I_Word</c> is the ignition word or phrase you want to add to the <c>Echo</c> class.
+            </param>
+            <example>
+                 <b>An example of using the <c>Add_Ignition_Word</c> method is the following:</b>
+                 <code>
+                         Echo_Major.Add_Ignition_Word("Choo");
+                         Echo_Major.Add_Ignition_Word("Dominick");
+                 </code>
+                 
+                 This will add the ignition words <em>Choo</em> and <em>Dominick</em> to the <c>Echo</c> class'
+                 <c>Ignition_Phords</c> variable.
+            </example>
+            
+        </member>
+        <member name="M:The_Echo_Environment.Echo.Combine_ItoC(System.Int32,System.Int32)">
+            <exception cref="T:System.IndexOutOfRangeException">
+                 This exception is thrown when the either index given to the <c>Combine_ItoC</c> Method is not within either
+                 in the <c>Ignition_Phords</c> member's or the <c>Choice_Base</c> member's index range. 
+            </exception>
+            
+        </member>
+        <member name="P:The_Echo_Environment.Echo.Current_Confidence">
+            <summary>
+                The <c>Current_Confidence</c> property gives you the current confidence level a given keyword or phrase it must
+                pass before any actions are performed.
+            </summary>
+            <remarks>
+                 The <c>Current_Confidence</c> property can be used to alter the <c>Confidence_Level</c> within the <c>Echo</c> class at anytime you choose.
+                 So, in the event that you either need to raise, lower, or simply check the current confidence level during run-time, you can use this
+                 property.
+            </remarks>
+            <value>
+                The Current_Confidence property gets/sets the <c>Echo</c> class' <c>Confidence_Level</c> member. 
+            </value>
+            <returns>
+                 Returns the current confidence level that the recognition engine is using currently.
+            </returns>
+            
+        </member>
+        <member name="T:The_Echo_Environment.Echo.Key_and_Command">
+            <summary> 
+                 The <c>Key_and_Command</c> structure holds the an index to a given ignition word/phrase and a list
+                 of indexs referencing a key to set of choices (via the <c>Key_and_Choice</c> structure).
+            </summary>
+            <remarks>
+                 Using the <c>Key_and_Command</c> structure is a keen way of linking a ignition word/phrases to a set of
+                 choices (if at all). To refrence the ignition word (for simple games where saying the object name will
+                 suffice), simply either not link the ignition word to a set of choices of remove all the choices from that
+                 ignition word upon the event that question is asked.
+            </remarks>
+            
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Key_and_Command.Key">
+            <summary>
+            Is an idex to a specified key word or phrase.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Key_and_Command.Command_Set">
+            <summary>
+            Is a <c>List</c> of unsigned shorts that references a set of choices within a
+            <c>Key_and_Choice</c> structure. <b>Leave null if the word itself causes an action.</b>
+            </summary>
+        </member>
+        <member name="T:The_Echo_Environment.Echo.Key_and_Choice">
+            <summary>
+                 The <c>Key_and_Choice</c> structure links a given index to an array of strings which hold the values
+                 of your choices.
+            </summary>
+            <remarks>
+                Using the <c>Key_and_Choice</c> helps segment a given set of choices with the use of an index (the <c>Key</c>).
+                Once this structure has been initialized, you can simply refrence through the index number and get a set of
+                choices at any given time (or until the index is removed).
+            </remarks>
+            
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Key_and_Choice.Key">
+            <summary>
+            Holds the index for a given set of choices.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Key_and_Choice.Choice_Set">
+            <summary>
+            Holds an array of choices (in the form of a <c>string</c> array).
+            </summary>
+        </member>
+        <member name="T:The_Echo_Environment.Echo.Working_Set">
+            <summary>
+                 The <c>Working_Set</c> holds all the current data pertaining to what the voice recognition engine is using
+                 or about to use in regards to keywords/phrases and choices.
+            </summary>
+            <remarks>
+                 The <c>Working_Set</c> structure holds a list of keywords and phrases that are currently in use or waiting
+                 to be used shortly in the <c>List</c> variable <c>Ignition_Set</c>.  The <c>List</c> variable <c>Builders_IU</c>
+                 (standing for <c>GrammarBUILDER</c>S In Use) holds the <c>GrammarBuilder</c> representation of the
+                 <c>Ignition_Set</c>. Once we have all that we need, we choose to consolidate our <c>Builders_IU</c> into a
+                 set of choices. Lastly, the <c>Grammar_IU</c>(for GRAMMAR In Use) is given the consolidated choices which will
+                 then be used in the recognition engine.
+                 
+                 This may seem like alot of steps, but it breaks everything down evenly.
+            </remarks>
+            
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Working_Set.Inginition_Set">
+            <summary>
+            Holds a set of indexes that reference back to the <c>Key_and_Command</c> structure within the <c>Echo</c> class.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Working_Set.Builders_IU">
+            <summary>
+            Holds a <c>List</c> of <c>GrammarBuilder</c> objects, that are representations of what is refrenced from within
+            the <c>Ignition_Set</c>.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Working_Set.Choice_Combination">
+            <summary>
+            The <c>Choice_Combinaion</c> holds all the <c>GrammarBuilder</c> objects supplied by the <c>Builders_IU</c> 
+            varibale, in the form of a set of Choices. This can then be turned into a signle grammar.
+            </summary>
+        </member>
+        <member name="F:The_Echo_Environment.Echo.Working_Set.Grammar_IU">
+            <summary>
+            The <c>Grammar_IU</c> holds all the Grammars that were created by the <c>Choice_Combination</c> variable. We can
+            then submit this to the recognition engine during the recognition process.
+            </summary>
+        </member>
+        <member name="T:The_Echo_Environment.Command_Sounds">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:The_Echo_Environment.Command_Sounds.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:The_Echo_Environment.Command_Sounds.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
